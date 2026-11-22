@@ -84,8 +84,8 @@ if (!accountIdWrong) {
   if (!account.ok) say('error', 'The token cannot see this account', `Cloudflare says: ${account.why}. ${known}in Cloudflare → My Profile → API Tokens → your token → Edit, add the "Edit Cloudflare Workers" policy with Account Resources → Include → your account.`);
   else ok('Token can see the account');
   const scripts = await cf('GET', `/accounts/${ACCOUNT}/workers/scripts`);
-  if (!scripts.ok) say('error', 'The token cannot deploy Workers', `Cloudflare says: ${scripts.why}. The token needs Account → Workers Scripts → Edit; the "Edit Cloudflare Workers" policy has it.`);
-  else ok('Token can deploy Workers');
+  if (!scripts.ok) say('error', 'The token cannot see Workers', `Cloudflare says: ${scripts.why}. The token needs Account → Workers Scripts → Edit; the "Edit Cloudflare Workers" policy has it.`);
+  else ok('Token can see Workers (uploading needs Workers Scripts → Edit, not Read; the deploy step tests that)');
 }
 
 // 5. The token can use the zone, and nothing else is already using the hostnames

@@ -59,7 +59,8 @@ jobs:
         run: |
           set -o pipefail
           if ! npx --yes wrangler@4 deploy 2>&1 | tee wrangler.log; then
-            msg=$(grep -E '✘|ERROR|[Ee]rror' wrangler.log | head -4 | tr '\n' ' ' | sed 's/%/%25/g')
+            # The ✘ line only says which request failed; Wrangler puts the reason on the lines after it
+            msg=$(sed 's/\x1b\[[0-9;]*m//g' wrangler.log | grep -A6 -m1 -E '✘|\[ERROR\]' | grep -vE '^\s*$|bug|report|Logs were written' | head -5 | tr '\n' ' ' | sed 's/%/%25/g')
             echo "::error title=Worker deploy failed::${msg:-Open the Deploy the Worker step for the details.}"
             exit 1
           fi

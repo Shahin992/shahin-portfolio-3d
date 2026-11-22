@@ -37,6 +37,7 @@
 <script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.setAttribute("data-theme",t)}catch(e){}})();</script>
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/viz.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -344,6 +345,7 @@
     <div class="footer-bottom">
       <span>© 2026 Shahin Alam · Hand-built with HTML &amp; CSS</span>
       <span>Last updated <time datetime="2026-11-22">November 22, 2026</time></span>
+      <span class="footer-legal"><a href="/privacy">Privacy</a><button type="button" class="link-btn" data-consent-open hidden>Cookie settings</button></span>
       <a href="#main">Back to top ↑</a>
     </div>
   </div>

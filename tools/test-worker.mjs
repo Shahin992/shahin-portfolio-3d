@@ -45,6 +45,8 @@ for (const p of pages) {
   check(`GET ${p} → 200`, r.status === 200, `got ${r.status}`);
   check(`${p} is HTML`, (r.headers.get('content-type') || '').startsWith('text/html'));
   check(`${p} has CSP`, (r.headers.get('content-security-policy') || '').includes("script-src 'self' 'sha256-"));
+  const csp = r.headers.get('content-security-policy') || '';
+  check(`${p} CSP allows Google Analytics`, /script-src[^;]*https:\/\/www\.googletagmanager\.com/.test(csp) && /connect-src[^;]*google-analytics\.com/.test(csp));
   check(`${p} has HSTS`, !!r.headers.get('strict-transport-security'));
   check(`${p} revalidates`, r.headers.get('cache-control') === 'public, max-age=0, must-revalidate', r.headers.get('cache-control'));
   const again = await call(p);

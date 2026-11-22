@@ -63,14 +63,18 @@ export const EDGE_HTML_TTL = 300;
 // has an inline script whose hash is not listed here, so the CSP never silently breaks the site.
 export const INLINE_SCRIPT_HASHES = ["'sha256-P79FeZY3tWpzsVTv2oo2WcNRqycaxT1/xPtc8eEKBGI='"];
 
+// Google Analytics 4 (public/assets/js/analytics.js): Google's documented hosts for gtag.js without Google Signals.
+const GA_SCRIPT = 'https://www.googletagmanager.com';
+const GA_HOSTS = 'https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com';
+
 export const SECURITY_HEADERS = {
   'Content-Security-Policy': [
     "default-src 'self'",
-    `script-src 'self' ${INLINE_SCRIPT_HASHES.join(' ')}`,
+    `script-src 'self' ${INLINE_SCRIPT_HASHES.join(' ')} ${GA_SCRIPT}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
-    "img-src 'self' data:",
-    "connect-src 'self'",
+    "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com",
+    `connect-src 'self' ${GA_HOSTS}`,
     "base-uri 'self'",
     "form-action 'self'",
     "frame-ancestors 'none'",

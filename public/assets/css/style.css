@@ -873,3 +873,28 @@ h1 .w > span { display: inline-block; transform-origin: 50% 100%; backface-visib
 .ckeywords { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: clamp(36px, 5vw, 56px); padding-top: 22px; border-top: 1px solid var(--rule); }
 .ckeywords .eyebrow { flex: none; }
 .col-item code, .cshared code { font-family: var(--mono); font-size: .86em; }
+
+/* ==========================================================================
+   Cookie choice (analytics.js) and footer legal links
+   ========================================================================== */
+.footer-legal { display: inline-flex; gap: 16px; align-items: center; }
+.link-btn { appearance: none; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.link-btn:hover, .footer-legal a:hover { color: var(--accent); }
+.consent {
+  position: fixed; z-index: 80; left: 50%; bottom: 16px; width: min(640px, calc(100% - 32px));
+  display: flex; align-items: center; gap: 16px 24px; padding: 16px 18px;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 6px; box-shadow: var(--shadow);
+  transform: translate(-50%, calc(100% + 24px)); opacity: 0; transition: transform .45s var(--ease), opacity .45s var(--ease);
+}
+.consent.is-open { transform: translate(-50%, 0); opacity: 1; }
+.consent p { margin: 0; font-size: .92rem; line-height: 1.5; color: var(--ink-2); }
+.consent p strong { color: var(--ink); }
+.consent p a { text-decoration: underline; text-underline-offset: 3px; }
+.consent-actions { display: flex; gap: 8px; flex: none; }
+.consent .btn { padding: 10px 16px; font-size: .88rem; }
+@media (max-width: 560px) {
+  .consent { flex-direction: column; align-items: stretch; bottom: 12px; }
+  .consent-actions .btn { flex: 1; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .consent { transition: none; } }
+@media print { .consent { display: none; } }

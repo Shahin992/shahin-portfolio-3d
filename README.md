@@ -22,6 +22,7 @@ This opens on **http://localhost:2026**, using the same URL rules and security h
 | `/experience` | `public/experience/index.html` |
 | `/skills` | `public/skills/index.html` |
 | `/contact` | `public/contact/index.html` |
+| `/privacy` | `public/privacy/index.html`: Google Analytics and cookie notice |
 | anything else | `public/404.html` (status 404) |
 
 `/about/`, `/about.html` and `/about/index.html` all redirect (301) to `/about`, and `www.` redirects to the bare domain: one canonical URL per page.
@@ -68,6 +69,7 @@ Push to the `production` branch; GitHub Actions does the rest. The one-time Clou
 - **3D (hand-written canvas and CSS 3D, no libraries):** wireframe terrain in the home hero, wireframe shapes in page headers, a draggable globe pinned on Dhaka, a draggable tech-stack sphere made of real crawlable text, scroll-linked 3D screenshots and tilt cards.
 - **Visualizations (all from résumé and repo facts):** impact charts, a career timeline, animated architecture diagrams, a warm-up ramp, a commit-activity chart and an interactive "where I've used what" stack map.
 - Everything animates only while on screen and respects *reduce motion*. Every page works without JavaScript.
+- **Analytics:** Google Analytics 4 (`G-T25P76EM9N`) via `assets/js/analytics.js`, on shahinkhan.online only. Visitors in the EEA, UK and Switzerland get an Accept / Reject banner first (Consent Mode v2); everyone else is counted without a banner. "Cookie settings" in the footer lets anyone change their choice.
 
 ## Editing tips
 

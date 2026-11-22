@@ -60,17 +60,35 @@ if (!verify.ok || verify.json.result?.status !== 'active') {
 }
 ok('Workers token is valid and active');
 
-// 3. The token can reach the account and the Workers in it
-const account = await cf('GET', `/accounts/${ACCOUNT}`);
-if (!account.ok) say('error', 'The token cannot see this account', `Cloudflare says: ${account.why}. Check CLOUDFLARE_ACCOUNT_ID, and in the token's settings set Account Resources to Include → your account.`);
-else ok(`Account: ${account.json.result?.name || ACCOUNT}`);
-const scripts = await cf('GET', `/accounts/${ACCOUNT}/workers/scripts`);
-if (!scripts.ok) say('error', 'The token cannot deploy Workers', `Cloudflare says: ${scripts.why}. The token needs Account → Workers Scripts → Edit; the "Edit Cloudflare Workers" template has it.`);
-else ok('Token can deploy Workers');
-
-// 4. The token can use the zone, and nothing else is already using the hostnames
+// 3. The zone tells us which account really owns the domain, so a wrong CLOUDFLARE_ACCOUNT_ID can be told apart
+//    from a token that lacks account access. Only the last 4 characters are printed: Actions logs on a public repo are public.
 const zones = await cf('GET', `/zones?name=${ZONE}`);
 const zone = zones.ok && zones.json.result?.[0];
+const owner = zone?.account?.id || '';
+const tail = (id) => `…${id.slice(-4)}`;
+let accountIdWrong = false;
+if (zone && ACCOUNT === zone.id) {
+  accountIdWrong = true;
+  say('error', 'CLOUDFLARE_ACCOUNT_ID is the Zone ID', `The secret holds the Zone ID of ${ZONE}. On the ${ZONE} Overview page, copy the Account ID (the line under Zone ID, ending ${tail(owner)}) and update the GitHub secret.`);
+} else if (owner && owner !== ACCOUNT) {
+  accountIdWrong = true;
+  say('error', 'CLOUDFLARE_ACCOUNT_ID is not the account that owns the domain', `${ZONE} belongs to the account ending ${tail(owner)}, but the secret ends ${tail(ACCOUNT)}. Copy the Account ID from the ${ZONE} Overview page and update the GitHub secret.`);
+} else if (owner) {
+  ok(`CLOUDFLARE_ACCOUNT_ID matches the account that owns ${ZONE}`);
+}
+
+// 4. The token can reach the account and the Workers in it (skipped when the account ID itself is wrong)
+if (!accountIdWrong) {
+  const known = owner === ACCOUNT ? 'The account ID is right, so the token itself lacks account access: ' : 'Check CLOUDFLARE_ACCOUNT_ID, and ';
+  const account = await cf('GET', `/accounts/${ACCOUNT}`);
+  if (!account.ok) say('error', 'The token cannot see this account', `Cloudflare says: ${account.why}. ${known}in Cloudflare → My Profile → API Tokens → your token → Edit, add the "Edit Cloudflare Workers" policy with Account Resources → Include → your account.`);
+  else ok('Token can see the account');
+  const scripts = await cf('GET', `/accounts/${ACCOUNT}/workers/scripts`);
+  if (!scripts.ok) say('error', 'The token cannot deploy Workers', `Cloudflare says: ${scripts.why}. The token needs Account → Workers Scripts → Edit; the "Edit Cloudflare Workers" policy has it.`);
+  else ok('Token can deploy Workers');
+}
+
+// 5. The token can use the zone, and nothing else is already using the hostnames
 if (!zone) {
   say('error', `The token cannot use ${ZONE}`, `Cloudflare says: ${zones.ok ? 'zone not found for this token' : zones.why}. In the token's settings set Zone Resources to Include → Specific zone → ${ZONE}.`);
 } else {
@@ -84,8 +102,8 @@ if (!zone) {
   }
 }
 
-// 5. The R2 bucket exists (created here if not) and is in the default location the upload uses
-let bucket = await cf('GET', `/accounts/${ACCOUNT}/r2/buckets/${BUCKET}`);
+// 6. The R2 bucket exists (created here if not) and is in the default location the upload uses
+let bucket = accountIdWrong ? { ok: false, status: -1 } : await cf('GET', `/accounts/${ACCOUNT}/r2/buckets/${BUCKET}`);
 if (!bucket.ok && bucket.status === 404) {
   const made = await cf('POST', `/accounts/${ACCOUNT}/r2/buckets`, { name: BUCKET });
   if (made.ok) { say('notice', `Created the R2 bucket ${BUCKET}`, 'It did not exist yet, so this run made it.'); bucket = await cf('GET', `/accounts/${ACCOUNT}/r2/buckets/${BUCKET}`); }
@@ -95,7 +113,7 @@ if (bucket.ok) {
   const jurisdiction = bucket.json.result?.jurisdiction;
   if (jurisdiction && jurisdiction !== 'default') say('error', `Bucket ${BUCKET} is in the "${jurisdiction}" jurisdiction`, 'The upload uses the default R2 location. Delete it and create it again with location Automatic (no jurisdiction).');
   else ok(`R2 bucket ${BUCKET} is ready`);
-} else if (bucket.status !== 404) {
+} else if (bucket.status !== 404 && bucket.status !== -1) {
   say('warning', `Could not check the R2 bucket ${BUCKET}`, `Cloudflare says: ${bucket.why}. The upload step will try anyway; make sure the bucket exists.`);
 }
 

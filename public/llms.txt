@@ -1,0 +1,53 @@
+# Shahin Alam
+
+> Shahin Alam is a full-stack software engineer based in Mirpur, Dhaka, Bangladesh, with 2.5+ years of hands-on experience building scalable, high-performance web applications with React.js, Next.js, Node.js, TypeScript, Docker and RESTful APIs. He works as a Junior Software Developer at Orangetoolz and was named Performer of the Quarter (Q3 2024).
+
+Key facts:
+- Also known as: Shahin Khan
+- Role: Full-stack Software Engineer (React.js, Next.js, Node.js)
+- Experience: 2.5+ years professional (Orangetoolz, since March 2024), after a MERN internship at Core Devs (Jan 2024 to Mar 2024)
+- Location: Mirpur, Dhaka, Bangladesh (GMT+6)
+- Current role: Junior Software Developer, Orangetoolz, Uttara, Dhaka (March 2024 to present)
+- Previous role: MERN Stack Developer (Intern), Core Devs, Mirpur DOHS, Dhaka (January 2024 to March 2024)
+- Education: B.Sc. in Computer Science and Engineering, Mirpur College (2021 to 2025)
+- Core stack: React.js, Next.js, TypeScript, JavaScript (ES6+), Redux Toolkit, RTK Query, React Query, Zustand, Material-UI, Shadcn UI, Tailwind CSS, Node.js, Express.js, NestJS, Prisma, PostgreSQL, MongoDB, JWT, Google OAuth, Docker, Firebase
+- Integrations: Nylas Email & Calendar, Zapier, NowCerts, EZLynx, Stripe, Gmail API, Cloudinary, Brevo, GPT models
+- Results: 20% faster load times; 40% less content creation time with GPT features; Docker-containerized microservices; 95%+ code quality standards
+- Languages: Bengali (native), English
+- Contact: shahin.khan.dev@gmail.com
+
+## Pages
+- [Home](https://shahinkhan.online/): Overview, impact, featured project, timeline, stack and FAQ
+- [About](https://shahinkhan.online/about): Background, story, working style, location, education and award
+- [Projects](https://shahinkhan.online/projects): Case studies, eight industry websites and professional work
+- [Experience](https://shahinkhan.online/experience): Career timeline and detailed responsibilities and results
+- [Skills](https://shahinkhan.online/skills): Technical skills by layer and where each was used
+- [Contact](https://shahinkhan.online/contact): Email, LinkedIn, GitHub, phone and time zone
+
+## Projects
+- [EduFusion case study](https://shahinkhan.online/projects/edufusion): Multi-tenant school management SaaS for Bangladesh, founded and built by Shahin; React 19 web app, NestJS 11 API, MongoDB, Redis/BullMQ, Expo Android app; AI question papers (Groq, OpenAI, Gemini) with answer-key verification; WhatsApp and SMS messaging; Docker on AWS EC2
+- [EduFusion website](https://edufusionbd.online)
+- [ColdMailer case study](https://shahinkhan.online/projects/coldmailer): Self-hosted cold-email platform (personal project) on Next.js 16 and PostgreSQL/Drizzle; human-paced sending, mailbox warm-up engine, IMAP IDLE reply detection in about 3 seconds; Docker Compose and Caddy
+- [Cliento case study](https://shahinkhan.online/projects/cliento): Full-stack CRM built with React, TypeScript, Redux Toolkit, React Query, Material-UI, Node.js, Express.js and MongoDB; JWT auth, Stripe subscriptions, Gmail API email threads, Cloudinary uploads, Brevo workflows
+- [Cliento live app](https://cliento-crm.vercel.app)
+- [Cliento frontend source](https://github.com/Shahin992/Cliento)
+- [Cliento backend source](https://github.com/Shahin992/Cliento-server)
+- [Cliento API docs](https://cliento-server.vercel.app/api-docs)
+
+## Websites (designed and built by Shahin)
+- [Kestrel Air & Plumbing website case study](https://shahinkhan.online/projects/kestrel): HVAC & plumbing, Columbus, Ohio, USA; 20 pages in English (US) · USD; A premium home-services website for a Columbus heating, cooling and plumbing company, with a three-mode hero, a ZIP checker, a financing calculator and online booking. Live: https://kestrel.shahinkhan.online
+- [Willowmere Therapy Group website case study](https://shahinkhan.online/projects/willowmere): Therapy practice, Portland, Oregon, USA; 28 pages in English (US); A calm, single-column website for a Portland therapy practice, with a three-step therapist matcher, a breathing exercise, clear fees and, on purpose, no testimonials. Live: https://willowmere.shahinkhan.online
+- [Ashcombe & Hale website case study](https://shahinkhan.online/projects/ashcombe): Bespoke kitchens & furniture, Bristol & London, UK; 36 pages in English (UK) · GBP; A gallery-led website for a Bristol cabinetmaker, with a masonry gallery, sketch-to-installed sliders, a swatch library, a cost estimator and consultation booking. Live: https://ashcombe.shahinkhan.online
+- [Northbay Garments website case study](https://shahinkhan.online/projects/northbay): Garment manufacturing, Gazipur, Bangladesh; 24 pages in English · for overseas buyers; A spec-sheet style website for a Bangladeshi knit and denim factory, written for overseas buyers, with technical flats, a capacity calendar, a T&A planner and an RFQ form. Live: https://northbay.shahinkhan.online
+- [Swapnojatra Tours website case study](https://shahinkhan.online/projects/swapnojatra): Travel agency, Dhaka, Bangladesh; 17 pages in Bangla · prices in taka; A Bangla travel agency website that feels like an app, with a bento hero, one tabbed search for tours, visas, hotels and flights, a season calendar and a mobile tab bar. Live: https://swapnojatra.shahinkhan.online
+- [Fernway Journeys website case study](https://shahinkhan.online/projects/fernway): Small-group tours, Worldwide; 16 pages in English · USD; An editorial travel-magazine website for small-group walking tours capped at 12 travellers, plus tailor-made trips, with a drag-scroll rail and a full-screen menu. Live: https://fernway.shahinkhan.online
+- [Al-Mabrur Hajj & Umrah website case study](https://shahinkhan.online/projects/almabrur): Hajj & Umrah agency, Dhaka, Bangladesh; 14 pages in Bangla · prices in taka; A Bangla Hajj and Umrah agency website for pilgrims in Dhaka, WhatsApp-first, with package tabs, hotel distances, a package finder and answer-first guides. Live: https://almabrur.shahinkhan.online
+- [Rihla Hajj & Umrah website case study](https://shahinkhan.online/projects/rihla): Hajj & Umrah agency, UK, USA, Canada & Australia; 15 pages in English · 5 currencies; An English Hajj and Umrah website for pilgrims in the UK, USA, Canada and Australia, with a five-currency switcher, a journey finder and three clear tiers. Live: https://rihla.shahinkhan.online
+- All eight: hand-written HTML, CSS and vanilla JavaScript with Motion animation; 170 pages in total; work without JavaScript; canonical URLs, JSON-LD on every page, 236+ FAQ answers marked up, sitemap.xml, llms.txt and robots.txt that welcomes AI crawlers
+
+## Profiles
+- [GitHub](https://github.com/Shahin992)
+- [LinkedIn](https://www.linkedin.com/in/shahin983)
+
+## Optional
+- [Résumé (PDF)](https://shahinkhan.online/assets/Shahin-Alam-Resume.pdf)

@@ -1,0 +1,17 @@
+# Built by `node build.mjs`; the production workflow builds it fresh
+dist/
+
+# R2 and Cloudflare credentials: never commit
+.env
+.env.*
+.dev.vars
+.wrangler/
+
+node_modules/
+*.log
+.DS_Store
+
+# Personal originals, not used by the site (kept on this computer only)
+public/assets/img/office-working.jpg
+public/assets/img/Shahin-PP-2025.png
+resume/

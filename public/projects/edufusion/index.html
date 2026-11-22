@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduFusion — AI School Management SaaS for Bangladesh</title>
+<meta name="description" content="How Shahin Alam built EduFusion, a multi-tenant school management SaaS for Bangladesh with React, NestJS, MongoDB, BullMQ and AI question papers.">
+<link rel="canonical" href="https://shahinkhan.online/projects/edufusion">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Shahin Alam">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shahin Alam">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="EduFusion — AI School Management SaaS for Bangladesh">
+<meta property="og:description" content="How Shahin Alam built EduFusion, a multi-tenant school management SaaS for Bangladesh with React, NestJS, MongoDB, BullMQ and AI question papers.">
+<meta property="og:url" content="https://shahinkhan.online/projects/edufusion">
+<meta property="og:image" content="https://shahinkhan.online/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shahin Alam, Software Engineer in Dhaka. React, Next.js, TypeScript, Node.js.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EduFusion — AI School Management SaaS for Bangladesh">
+<meta name="twitter:description" content="How Shahin Alam built EduFusion, a multi-tenant school management SaaS for Bangladesh with React, NestJS, MongoDB, BullMQ and AI question papers.">
+<meta name="twitter:image" content="https://shahinkhan.online/assets/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="me" href="https://github.com/Shahin992">
+<link rel="me" href="https://www.linkedin.com/in/shahin983">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..500&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.setAttribute("data-theme",t)}catch(e){}})();</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/viz.js" defer></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://shahinkhan.online/#website",
+   "url": "https://shahinkhan.online/",
+   "name": "Shahin Alam — Software Engineer",
+   "description": "Portfolio of Shahin Alam, a software engineer in Dhaka, Bangladesh.",
+   "inLanguage": "en",
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "publisher": {
+    "@id": "https://shahinkhan.online/#person"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://shahinkhan.online/#person",
+   "name": "Shahin Alam",
+   "alternateName": "Shahin Khan",
+   "jobTitle": "Software Engineer",
+   "url": "https://shahinkhan.online/",
+   "image": "https://shahinkhan.online/assets/img/shahin-alam.jpg",
+   "sameAs": [
+    "https://github.com/Shahin992",
+    "https://www.linkedin.com/in/shahin983"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://shahinkhan.online/projects/edufusion#webpage",
+   "url": "https://shahinkhan.online/projects/edufusion",
+   "name": "EduFusion — AI School Management SaaS for Bangladesh",
+   "description": "How Shahin Alam built EduFusion, a multi-tenant school management SaaS for Bangladesh with React, NestJS, MongoDB, BullMQ and AI question papers.",
+   "isPartOf": {
+    "@id": "https://shahinkhan.online/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://shahinkhan.online/assets/img/og-image.png"
+   },
+   "datePublished": "2026-11-22",
+   "dateModified": "2026-11-22",
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "breadcrumb": {
+    "@id": "https://shahinkhan.online/projects/edufusion#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://shahinkhan.online/projects/edufusion#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://shahinkhan.online/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Projects",
+     "item": "https://shahinkhan.online/projects"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "EduFusion",
+     "item": "https://shahinkhan.online/projects/edufusion"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://shahinkhan.online/projects/edufusion#faq",
+   "isPartOf": {
+    "@id": "https://shahinkhan.online/projects/edufusion#webpage"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is EduFusion?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "EduFusion is a multi-tenant school management SaaS for Bangladesh, founded and built by Shahin Alam. Schools, colleges, madrasas and coaching centres use it to run students, attendance, exams, GPA results, fees, salaries and guardian messaging over WhatsApp and SMS, and to generate NCTB-format question papers with AI. It has a React 19 web app, a NestJS 11 API on MongoDB with Redis/BullMQ queues, an Expo Android app and a bilingual website."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is EduFusion built with?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Web app: React 19, Vite, Material-UI 7, Redux Toolkit and a PWA. API: NestJS 11 on Express 5 with TypeScript, MongoDB 7 (replica set for transactions), Redis and BullMQ. Android: Expo and React Native. Infrastructure: Docker Compose on AWS EC2 behind Cloudflare and nginx, deployed by GitHub Actions. AI: Groq, OpenAI and Gemini."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does EduFusion generate question papers with AI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Auto Question Lab asks an AI model (Groq by default, with OpenAI and Gemini as alternatives) for NCTB-format MCQs and creative questions in Bangla or English. Work is split into parallel chunks, a local filter rejects mixed-script or near-duplicate questions, and a second model pass solves every MCQ to confirm the answer key before the paper is exported as an A4 PDF with the school's header."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is EduFusion live?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The website is edufusionbd.online and schools sign up for a 30-day free trial on the web app. The Android app is in closed testing."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://shahinkhan.online/projects/edufusion#app",
+   "name": "EduFusion",
+   "description": "EduFusion is a multi-tenant school management SaaS for Bangladesh, founded and built by Shahin Alam. Schools, colleges, madrasas and coaching centres use it to run students, attendance, exams, GPA results, fees, salaries and guardian messaging over WhatsApp and SMS, and to generate NCTB-format question papers with AI. It has a React 19 web app, a NestJS 11 API on MongoDB with Redis/BullMQ queues, an Expo Android app and a bilingual website.",
+   "url": "https://edufusionbd.online",
+   "applicationCategory": "BusinessApplication",
+   "applicationSubCategory": "School management software",
+   "operatingSystem": "Web browser, Android",
+   "inLanguage": [
+    "en",
+    "bn"
+   ],
+   "areaServed": {
+    "@type": "Country",
+    "name": "Bangladesh"
+   },
+   "screenshot": [
+    "https://shahinkhan.online/assets/img/projects/edufusion-dashboard-1600.webp",
+    "https://shahinkhan.online/assets/img/projects/edufusion-report-card-1600.webp"
+   ],
+   "featureList": [
+    "Students & classes: Profiles, automatic roll numbers and IDs, CSV bulk import as a background job, and yearly class promotion.",
+    "Attendance: Present, absent, late or leave, a monthly register with CSV export, and absence alerts by SMS, WhatsApp and push.",
+    "Exams & routine: Exam setup and a paper routine with dates, times and rooms, shared as class PDFs and pushed to students.",
+    "Marks & GPA results: Marks by student or subject, GPA from each school's grading rules, board rules for optional subjects, merit lists and report-card PDFs.",
+    "Fees & accounts: Monthly bills on the 1st, multi-bill collection in one transaction, receipts, advance payments, salaries, expenses and a ledger.",
+    "Auto Question Lab: AI-drafted NCTB-format MCQs and creative questions in Bangla or English, exported as A4 PDFs with an answer key.",
+    "Guardian messaging: WhatsApp campaigns from the school's own number, SMS packages with delivery reports, and web and mobile push.",
+    "Teacher & student portals: A phone-first teacher portal scoped to assigned subjects; a student portal for results, fees, exams and study material.",
+    "Plans & limits: 30-day trial, monthly and yearly plans, and question allowances reserved before every AI call."
+   ],
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "creator": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "subjectOf": {
+    "@id": "https://shahinkhan.online/projects/edufusion#webpage"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/" aria-label="Shahin Alam, home">Shahin Alam<span>.</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Primary"><ul><li><a href="/about"><span class="n">01</span>About</a></li><li><a href="/projects" aria-current="page"><span class="n">02</span>Projects</a></li><li><a href="/experience"><span class="n">03</span>Experience</a></li><li><a href="/skills"><span class="n">04</span>Skills</a></li><li><a href="/contact"><span class="n">05</span>Contact</a></li></ul></nav>
+    <div class="header-actions">
+      <span class="clock" title="Local time in Dhaka">DHAKA <span data-clock>GMT+6</span></span>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle color theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button class="icon-btn nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <canvas class="hero-3d" data-shape="knot" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/projects">Projects</a></li><li><span aria-current="page">EduFusion</span></li></ol></nav>
+    <h1><span class="w"><span style="--wi:0">EduFusion:</span></span> <span class="w"><span style="--wi:1">school</span></span> <span class="w"><span style="--wi:2">management</span></span> <span class="w"><span style="--wi:3">SaaS</span></span> <span class="w"><span style="--wi:4">for</span></span> <em><span class="w"><span style="--wi:5">Bangladesh</span></span></em></h1>
+    <p class="lead" data-rise style="--d:0.12s">A multi-tenant platform that runs a school's students, fees, results, attendance and guardian messaging in one place, with AI-generated NCTB question papers. I founded it and built the web app, API, Android app and website.</p>
+    <div class="btn-row" data-rise style="--d:0.2s">
+      <a class="btn btn-ink" href="https://edufusionbd.online" target="_blank" rel="noopener">Live website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a class="btn btn-line" href="https://app.edufusionbd.online" target="_blank" rel="noopener">Open the web app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+<section class="section tight" aria-label="Project facts">
+  <div class="wrap">
+    <dl class="facts" data-reveal>
+      <div><dt>Type</dt><dd>Multi-tenant SaaS · B2B</dd></div>
+      <div><dt>Role</dt><dd>Founder &amp; full-stack engineer</dd></div>
+      <div><dt>Status</dt><dd>Live · launched 2026</dd></div>
+      <div><dt>Web app</dt><dd>React 19 · Vite · MUI 7 · Redux Toolkit · PWA</dd></div>
+      <div><dt>API</dt><dd>NestJS 11 · Express 5 · TypeScript</dd></div>
+      <div><dt>Data &amp; jobs</dt><dd>MongoDB 7 · Redis · BullMQ</dd></div>
+      <div><dt>Infrastructure</dt><dd>Docker · AWS EC2 · Cloudflare · GitHub Actions</dd></div>
+      <div><dt>AI</dt><dd>Groq · OpenAI · Gemini</dd></div>
+      <div><dt>Mobile &amp; messaging</dt><dd>Expo Android · WhatsApp · SMS · Push</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-label="Architecture">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(01)</span><h2>How it's <em>built</em></h2><span></span><p class="sec-lede">Three clients share one NestJS API on AWS EC2. Every query is scoped to a school, slow work runs through BullMQ queues, and WhatsApp goes through a self-hosted gateway.</p></header>
+    <div class="arch" data-reveal style="--d:0.1s"><svg class="arch-d animated" viewBox="0 0 960 470" role="img" aria-labelledby="efd-t"><title id="efd-t">EduFusion architecture: a React web app, an Expo Android app and a website talk to a NestJS API on AWS EC2 (Docker Compose behind Cloudflare and nginx), backed by MongoDB, Redis with BullMQ queues and a self-hosted WhatsApp gateway, with AI providers, Cloudinary, SMS, push notifications and nightly Atlas backups.</title><g class="arch-group"><rect x="232" y="30" width="520" height="330" rx="10"/><text x="248" y="54">AWS EC2 · Docker · Cloudflare</text></g><path id="efdw" class="arch-edge" d="M196,98 C226,98 226,170 256,170"/><circle class="packet" r="4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#efdw"/></animateMotion></circle><path id="efda" class="arch-edge" d="M196,198 C226,198 226,190 256,190"/><circle class="packet" r="4"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#efda"/></animateMotion></circle><path id="efds" class="arch-edge" d="M196,298 C226,298 226,210 256,210"/><circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#efds"/></animateMotion></circle><path id="efdm" class="arch-edge" d="M486,150 C507,150 507,96 528,96"/><circle class="packet" r="4"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#efdm"/></animateMotion></circle><path id="efdr" class="arch-edge" d="M486,196 H528"/><circle class="packet" r="4"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#efdr"/></animateMotion></circle><path id="efdq" class="arch-edge" d="M628,236 V256"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#efdq"/></animateMotion></circle><path id="efdx0" class="arch-edge" d="M371,260 V376 H100 V392"/><circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#efdx0"/></animateMotion></circle><path id="efdx1" class="arch-edge" d="M371,260 V376 H288 V392"/><circle class="packet" r="4"><animateMotion dur="2.6999999999999997s" repeatCount="indefinite"><mpath href="#efdx1"/></animateMotion></circle><path id="efdx2" class="arch-edge" d="M371,260 V376 H476 V392"/><circle class="packet" r="4"><animateMotion dur="3.0s" repeatCount="indefinite"><mpath href="#efdx2"/></animateMotion></circle><path id="efdx3" class="arch-edge" d="M371,260 V376 H664 V392"/><circle class="packet" r="4"><animateMotion dur="3.3s" repeatCount="indefinite"><mpath href="#efdx3"/></animateMotion></circle><path id="efdx4" class="arch-edge" d="M371,260 V376 H852 V392"/><circle class="packet" r="4"><animateMotion dur="3.5999999999999996s" repeatCount="indefinite"><mpath href="#efdx4"/></animateMotion></circle><text class="arch-label" x="384" y="300" text-anchor="start">Integrations</text><g class="arch-node "><rect x="16" y="60" width="180" height="76" rx="6"/><text class="t" x="32" y="88">Web app</text><text class="s" x="32" y="110">React 19 · Vite PWA</text></g><g class="arch-node "><rect x="16" y="160" width="180" height="76" rx="6"/><text class="t" x="32" y="188">Android app</text><text class="s" x="32" y="210">Expo · React Native</text></g><g class="arch-node "><rect x="16" y="260" width="180" height="76" rx="6"/><text class="t" x="32" y="288">Website</text><text class="s" x="32" y="310">Cloudflare Workers</text></g><g class="arch-node "><rect x="256" y="120" width="230" height="140" rx="6"/><text class="t" x="272" y="148">NestJS API</text><text class="s" x="272" y="170">Express 5 · TypeScript</text><text class="s" x="272" y="189">JWT · role &amp; teacher scope</text><text class="s" x="272" y="208">Tenant-scoped queries</text><text class="s" x="272" y="227">Cron jobs · rate limits</text></g><g class="arch-node "><rect x="528" y="56" width="200" height="80" rx="6"/><text class="t" x="544" y="84">MongoDB 7</text><text class="s" x="544" y="106">Transactions · 2 DBs</text></g><g class="arch-node "><rect x="528" y="156" width="200" height="80" rx="6"/><text class="t" x="544" y="184">Redis · BullMQ</text><text class="s" x="544" y="206">Bills · imports · SMS</text></g><g class="arch-node "><rect x="528" y="256" width="200" height="80" rx="6"/><text class="t" x="544" y="284">WAHA</text><text class="s" x="544" y="306">Self-hosted WhatsApp</text></g><g class="arch-node svc"><rect x="16" y="392" width="168" height="60" rx="6"/><text class="t" x="32" y="420">AI providers</text><text class="s" x="32" y="442">Groq/OpenAI/Gemini</text></g><g class="arch-node svc"><rect x="204" y="392" width="168" height="60" rx="6"/><text class="t" x="220" y="420">Cloudinary</text><text class="s" x="220" y="442">Files · PDFs</text></g><g class="arch-node svc"><rect x="392" y="392" width="168" height="60" rx="6"/><text class="t" x="408" y="420">SMS gateway</text><text class="s" x="408" y="442">Delivery reports</text></g><g class="arch-node svc"><rect x="580" y="392" width="168" height="60" rx="6"/><text class="t" x="596" y="420">Push</text><text class="s" x="596" y="442">OneSignal · VAPID</text></g><g class="arch-node svc"><rect x="768" y="392" width="168" height="60" rx="6"/><text class="t" x="784" y="420">MongoDB Atlas</text><text class="s" x="784" y="442">Nightly backup</text></g></svg><svg class="arch-m animated" viewBox="0 0 360 680" role="img" aria-labelledby="efm-t"><title id="efm-t">EduFusion architecture: a React web app, an Expo Android app and a website talk to a NestJS API on AWS EC2 (Docker Compose behind Cloudflare and nginx), backed by MongoDB, Redis with BullMQ queues and a self-hosted WhatsApp gateway, with AI providers, Cloudinary, SMS, push notifications and nightly Atlas backups.</title><g class="arch-group"><rect x="10" y="110" width="340" height="400" rx="10"/><text x="26" y="134">AWS EC2 · Docker · Cloudflare</text></g><path id="efmc" class="arch-edge" d="M180,92 V150"/><circle class="packet" r="4"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#efmc"/></animateMotion></circle><path id="efmm" class="arch-edge" d="M105,270 V300"/><circle class="packet" r="4"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#efmm"/></animateMotion></circle><path id="efmr" class="arch-edge" d="M255,270 V300"/><circle class="packet" r="4"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#efmr"/></animateMotion></circle><path id="efmq" class="arch-edge" d="M255,370 V400"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#efmq"/></animateMotion></circle><path id="efmx" class="arch-edge" d="M320,210 H338 V610 H320"/><circle class="packet" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#efmx"/></animateMotion></circle><g class="arch-node "><rect x="40" y="8" width="280" height="84" rx="6"/><text class="t" x="56" y="36">Clients</text><text class="s" x="56" y="58">Web app · React PWA</text><text class="s" x="56" y="77">Android app · Website</text></g><g class="arch-node "><rect x="40" y="150" width="280" height="120" rx="6"/><text class="t" x="56" y="178">NestJS API</text><text class="s" x="56" y="200">Express 5 · TypeScript</text><text class="s" x="56" y="219">JWT · role &amp; teacher scope</text><text class="s" x="56" y="238">Tenant-scoped queries</text></g><g class="arch-node "><rect x="40" y="300" width="130" height="70" rx="6"/><text class="t" x="56" y="328">MongoDB 7</text><text class="s" x="56" y="350">2 databases</text></g><g class="arch-node "><rect x="190" y="300" width="130" height="70" rx="6"/><text class="t" x="206" y="328">Redis</text><text class="s" x="206" y="350">BullMQ queues</text></g><g class="arch-node "><rect x="40" y="400" width="280" height="70" rx="6"/><text class="t" x="56" y="428">WAHA</text><text class="s" x="56" y="450">Self-hosted WhatsApp</text></g><g class="arch-node svc"><rect x="40" y="550" width="280" height="120" rx="6"/><text class="t" x="56" y="578">Services</text><text class="s" x="56" y="600">AI: Groq · OpenAI · Gemini</text><text class="s" x="56" y="619">Cloudinary · SMS · Push</text><text class="s" x="56" y="638">Atlas nightly backup</text></g></svg></div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="Screens">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(02)</span><h2>The <em>product</em></h2><span></span><p class="sec-lede">Screens from the live app, shown with demo data.</p></header>
+    <div class="gallery">
+      <figure class="wide" data-reveal><div class="frame"><img src="/assets/img/projects/edufusion-dashboard-1600.webp" srcset="/assets/img/projects/edufusion-dashboard-800.webp 800w, /assets/img/projects/edufusion-dashboard-1600.webp 1600w" sizes="(max-width: 1240px) 92vw, 1140px" width="1600" height="900" alt="EduFusion admin dashboard with totals for students, teachers, fee collection and expenses, plus fee and payroll charts (demo data)" loading="lazy" decoding="async"></div>
+        <figcaption><b>Fig. 01</b> Admin dashboard</figcaption></figure>
+      <figure data-reveal style="--d:0.05s"><div class="frame"><img src="/assets/img/projects/edufusion-report-card-1600.webp" srcset="/assets/img/projects/edufusion-report-card-800.webp 800w, /assets/img/projects/edufusion-report-card-1600.webp 1600w" sizes="(max-width: 720px) 92vw, 700px" width="1600" height="1199" alt="EduFusion academic report card with subject marks, grades and GPA (demo data)" loading="lazy" decoding="async"></div>
+        <figcaption><b>Fig. 02</b> Report card, generated as a PDF in the browser</figcaption></figure>
+      <figure data-reveal style="--d:0.1s"><div class="frame phone-frame"><img src="/assets/img/projects/edufusion-student-app-620.webp" srcset="/assets/img/projects/edufusion-student-app-310.webp 310w, /assets/img/projects/edufusion-student-app-620.webp 620w" sizes="300px" width="620" height="1034" alt="EduFusion student portal on a phone showing class, roll number and fee status (demo data)" loading="lazy" decoding="async"></div>
+        <figcaption><b>Fig. 03</b> Student portal on a phone</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Overview">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(03)</span><h2>Overview</h2><span></span></header>
+    <div class="split">
+      <div class="sticky"><div class="pull" data-reveal><span class="eyebrow">Summary</span>EduFusion is a multi-tenant school management SaaS for Bangladesh, founded and built by Shahin Alam. Schools, colleges, madrasas and coaching centres use it to run students, attendance, exams, GPA results, fees, salaries and guardian messaging over WhatsApp and SMS, and to generate NCTB-format question papers with AI. It has a React 19 web app, a NestJS 11 API on MongoDB with Redis/BullMQ queues, an Expo Android app and a bilingual website.</div></div>
+      <div class="prose" data-reveal>
+        <p>Most schools in Bangladesh still run on paper ledgers and Excel. Results and report cards are made by hand, fee dues are chased one by one, and guardians are phoned individually. EduFusion puts all of that in one place and speaks the local language: the NCTB curriculum, BDT money, Bangla receipts and SMS, and Bangladeshi mobile numbers.</p>
+        <p>It serves four roles: a super admin who runs the platform, institute admins who run a school, <strong>teachers</strong> who only see their assigned classes and subjects, and <strong>students and their families</strong> who share one login. A school signs up, gets a 30-day free trial and then pays monthly or yearly by bKash, Nagad, Rocket or bank transfer, approved by the super admin.</p>
+        <p>I started EduFusion in <strong>May 2026</strong> and built all four parts: the web app, the API, the Android app and the website. It runs in production on AWS and was tested end to end against the live deployment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="Features">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(04)</span><h2>What it <em>does</em></h2><span></span></header>
+    <ol class="numbered three" data-reveal><li><h3>Students &amp; classes</h3><p>Profiles, automatic roll numbers and IDs, CSV bulk import as a background job, and yearly class promotion.</p></li><li><h3>Attendance</h3><p>Present, absent, late or leave, a monthly register with CSV export, and absence alerts by SMS, WhatsApp and push.</p></li><li><h3>Exams &amp; routine</h3><p>Exam setup and a paper routine with dates, times and rooms, shared as class PDFs and pushed to students.</p></li><li><h3>Marks &amp; GPA results</h3><p>Marks by student or subject, GPA from each school's grading rules, board rules for optional subjects, merit lists and report-card PDFs.</p></li><li><h3>Fees &amp; accounts</h3><p>Monthly bills on the 1st, multi-bill collection in one transaction, receipts, advance payments, salaries, expenses and a ledger.</p></li><li><h3>Auto Question Lab</h3><p>AI-drafted NCTB-format MCQs and creative questions in Bangla or English, exported as A4 PDFs with an answer key.</p></li><li><h3>Guardian messaging</h3><p>WhatsApp campaigns from the school's own number, SMS packages with delivery reports, and web and mobile push.</p></li><li><h3>Teacher &amp; student portals</h3><p>A phone-first teacher portal scoped to assigned subjects; a student portal for results, fees, exams and study material.</p></li><li><h3>Plans &amp; limits</h3><p>30-day trial, monthly and yearly plans, and question allowances reserved before every AI call.</p></li></ol>
+  </div>
+</section>
+
+<section class="section" aria-label="Engineering highlights">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(05)</span><h2>Engineering <em>highlights</em></h2><span></span></header>
+    <div class="prose" data-reveal style="max-width:78ch">
+      <ul>
+        <li><strong>Multi-tenancy you can't forget.</strong> Every record and every query carries the school's ID. Roles are enforced on the server for every route, and a dedicated module limits teachers to their assigned subjects.</li>
+        <li><strong>AI that checks its own work.</strong> Generation is split into parallel chunks to stay under Cloudflare's 100-second limit. A local filter rejects mixed-script and near-duplicate questions, and a second model pass solves every MCQ to confirm the answer key. Groq is the default, with OpenAI and Gemini as fallbacks, and the token cost of every request is tracked in USD and BDT.</li>
+        <li><strong>Quotas that can't overspend.</strong> A school's question allowance is reserved before calling the model and settled on what was actually written.</li>
+        <li><strong>Queues with honest retries.</strong> BullMQ handles monthly bills, CSV imports, WhatsApp (paced per school) and SMS (exponential retries). A sweep marks messages with an unknown outcome as unconfirmed instead of sending them twice.</li>
+        <li><strong>Money handled safely.</strong> Collecting several bills at once runs inside a MongoDB transaction, and per-process locks plus unique indexes make double submits harmless.</li>
+        <li><strong>Built for Bangladesh.</strong> Lakh and crore money formatting, Asia/Dhaka time, Bangla receipts, papers and SMS, and Bangla-digit PDFs.</li>
+        <li><strong>Boring, reliable shipping.</strong> Docker Compose on AWS EC2 behind Cloudflare and nginx, GitHub Actions deploys on every push to main, 42 migrations that run on boot, and nightly backups to MongoDB Atlas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="By the numbers">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(06)</span><h2>By the <em>numbers</em></h2><span></span></header>
+    <div class="metrics">
+      <article class="metric" data-reveal>
+        <p class="metric-value"><span data-count="400">400</span></p>
+        <h3>Commits across 3 repos</h3>
+        <div class="mini-bars" role="img" aria-label="Commits: web client 188, API 163, website 49">
+          <div class="mb"><span>Client</span><i style="--w:100%"></i><b>188</b></div>
+          <div class="mb after"><span>API</span><i style="--w:86.7%"></i><b>163</b></div>
+          <div class="mb"><span>Site</span><i style="--w:26.1%"></i><b>49</b></div>
+        </div>
+        <p class="metric-note">Since May 2026, with 79 merged pull requests.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.08s">
+        <p class="metric-value"><span data-count="273">273</span></p>
+        <h3>Automated test files</h3>
+        <div class="mini-bars" role="img" aria-label="Test files: web client 157, API 116">
+          <div class="mb"><span>Client</span><i style="--w:100%"></i><b>157</b></div>
+          <div class="mb after"><span>API</span><i style="--w:73.9%"></i><b>116</b></div>
+        </div>
+        <p class="metric-note">Vitest and Testing Library on the client, Jest on the API.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.16s">
+        <p class="metric-value">1,893</p>
+        <h3>NCTB chapters mapped</h3>
+        <p class="metric-note">Textbook chapters seeded into the question bank that feeds AI question generation.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.24s">
+        <p class="metric-value"><span data-count="42">42</span></p>
+        <h3>Database migrations</h3>
+        <p class="metric-note">Run automatically on every deploy, followed by a question-bank sync.</p>
+      </article>
+    </div>
+    <h3 style="margin:56px 0 18px;font-family:var(--serif);font-weight:400;font-size:1.8rem">Build log: commits per month</h3>
+    <div class="ramp-card" data-reveal style="--d:0.1s">
+    <div class="cchart" role="img" aria-label="Commits per month in 2026, web client plus API: May 95, Jun 54, Jul 62, Aug 0, Sep 0, Oct 66, Nov 74"><div class="cbar" style="--i:0" title="May 2026: 42 web client + 53 API commits"><b>95</b><i style="height:38.2%"></i><i class="srv" style="height:48.2%"></i></div><div class="cbar" style="--i:1" title="Jun 2026: 32 web client + 22 API commits"><b>54</b><i style="height:29.1%"></i><i class="srv" style="height:20.0%"></i></div><div class="cbar" style="--i:2" title="Jul 2026: 38 web client + 24 API commits"><b>62</b><i style="height:34.5%"></i><i class="srv" style="height:21.8%"></i></div><div class="cbar zero" style="--i:3" title="Aug 2026: 0 web client + 0 API commits"><b>0</b><i style="height:0.0%"></i><i class="srv" style="height:0.0%"></i></div><div class="cbar zero" style="--i:4" title="Sep 2026: 0 web client + 0 API commits"><b>0</b><i style="height:0.0%"></i><i class="srv" style="height:0.0%"></i></div><div class="cbar" style="--i:5" title="Oct 2026: 35 web client + 31 API commits"><b>66</b><i style="height:31.8%"></i><i class="srv" style="height:28.2%"></i></div><div class="cbar" style="--i:6" title="Nov 2026: 41 web client + 33 API commits"><b>74</b><i style="height:37.3%"></i><i class="srv" style="height:30.0%"></i></div></div>
+    <div class="cchart-x" aria-hidden="true"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
+    <p class="chart-legend"><span><i></i>Web client</span><span><i class="a"></i>API</span><span>2026 · November to date</span></p>
+  </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Frequently asked questions">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(07)</span><h2>EduFusion <em>FAQ</em></h2><span></span></header>
+    <div class="faq" data-reveal><details open><summary><h3>What is EduFusion?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>EduFusion is a multi-tenant school management SaaS for Bangladesh, founded and built by Shahin Alam. Schools, colleges, madrasas and coaching centres use it to run students, attendance, exams, GPA results, fees, salaries and guardian messaging over WhatsApp and SMS, and to generate NCTB-format question papers with AI. It has a React 19 web app, a NestJS 11 API on MongoDB with Redis/BullMQ queues, an Expo Android app and a bilingual website.</p></div></details><details><summary><h3>What is EduFusion built with?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Web app: React 19, Vite, Material-UI 7, Redux Toolkit and a PWA. API: NestJS 11 on Express 5 with TypeScript, MongoDB 7 (replica set for transactions), Redis and BullMQ. Android: Expo and React Native. Infrastructure: Docker Compose on AWS EC2 behind Cloudflare and nginx, deployed by GitHub Actions. AI: Groq, OpenAI and Gemini.</p></div></details><details><summary><h3>How does EduFusion generate question papers with AI?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>The Auto Question Lab asks an AI model (Groq by default, with OpenAI and Gemini as alternatives) for NCTB-format MCQs and creative questions in Bangla or English. Work is split into parallel chunks, a local filter rejects mixed-script or near-duplicate questions, and a second model pass solves every MCQ to confirm the answer key before the paper is exported as an A4 PDF with the school's header.</p></div></details><details><summary><h3>Is EduFusion live?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. The website is <a href="https://edufusionbd.online" target="_blank" rel="noopener">edufusionbd.online</a> and schools sign up for a 30-day free trial on the web app. The Android app is in closed testing.</p></div></details></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cta" data-reveal>
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Have a project or role in mind?</p>
+      <a class="big-mail" href="mailto:shahin.khan.dev@gmail.com">shahin.khan.dev@gmail.com</a>
+      <p class="alt">Or reach out on <a href="https://www.linkedin.com/in/shahin983" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </div>
+    <div class="footer-grid">
+      <div><h2>Shahin Alam</h2><p>Full-stack software engineer in Dhaka, Bangladesh, building fast, scalable web applications with React, Next.js, Node.js and TypeScript.</p></div>
+      <nav aria-label="Footer"><h2>Pages</h2><ul><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/experience">Experience</a></li><li><a href="/skills">Skills</a></li><li><a href="/contact">Contact</a></li></ul></nav>
+      <div><h2>Elsewhere</h2><ul>
+        <li><a href="https://github.com/Shahin992" rel="me noopener" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/shahin983" rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:shahin.khan.dev@gmail.com">Email</a></li>
+        <li><a href="/assets/Shahin-Alam-Resume.pdf" download>Résumé (PDF)</a></li>
+      </ul></div>
+      <div><h2>Local time · Dhaka</h2><p class="footer-time" data-clock>GMT+6</p><p class="muted" style="margin-top:8px">Bangladesh Standard Time</p></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shahin Alam · Hand-built with HTML &amp; CSS</span>
+      <span>Last updated <time datetime="2026-11-22">November 22, 2026</time></span>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </div>
+  <p class="footer-giant" aria-hidden="true" data-reveal><span class="l" style="--li:0">S</span><span class="l" style="--li:1">h</span><span class="l" style="--li:2">a</span><span class="l" style="--li:3">h</span><span class="l" style="--li:4">i</span><span class="l" style="--li:5">n</span> <em><span class="l" style="--li:6">A</span><span class="l" style="--li:7">l</span><span class="l" style="--li:8">a</span><span class="l" style="--li:9">m</span></em></p>
+</footer>
+</body>
+</html>

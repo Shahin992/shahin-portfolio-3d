@@ -1,0 +1,19 @@
+# Cloudflare Worker that serves the portfolio from R2.
+# One-time setup and deploy steps: see DEPLOY.md.
+name = "shahin-portfolio"
+main = "worker/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = false
+
+routes = [
+  { pattern = "shahinkhan.online", custom_domain = true },
+  { pattern = "www.shahinkhan.online", custom_domain = true },
+]
+
+[[r2_buckets]]
+binding = "SITE"
+bucket_name = "shahin-portfolio"
+
+[vars]
+# www.shahinkhan.online redirects here (one canonical address per page)
+CANONICAL_HOST = "shahinkhan.online"

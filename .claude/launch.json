@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 2026
+    },
+    {
+      "name": "portfolio-wifi",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:wifi"],
+      "port": 2027
+    }
+  ]
+}

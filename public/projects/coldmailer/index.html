@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ColdMailer — Self-Hosted Cold Email Platform Case Study</title>
+<meta name="description" content="How Shahin Alam built ColdMailer, a self-hosted cold-email platform on Next.js 16 and PostgreSQL with human-paced sending, warm-up and reply tracking.">
+<link rel="canonical" href="https://shahinkhan.online/projects/coldmailer">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Shahin Alam">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shahin Alam">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="ColdMailer — Self-Hosted Cold Email Platform Case Study">
+<meta property="og:description" content="How Shahin Alam built ColdMailer, a self-hosted cold-email platform on Next.js 16 and PostgreSQL with human-paced sending, warm-up and reply tracking.">
+<meta property="og:url" content="https://shahinkhan.online/projects/coldmailer">
+<meta property="og:image" content="https://shahinkhan.online/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shahin Alam, Software Engineer in Dhaka. React, Next.js, TypeScript, Node.js.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ColdMailer — Self-Hosted Cold Email Platform Case Study">
+<meta name="twitter:description" content="How Shahin Alam built ColdMailer, a self-hosted cold-email platform on Next.js 16 and PostgreSQL with human-paced sending, warm-up and reply tracking.">
+<meta name="twitter:image" content="https://shahinkhan.online/assets/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="me" href="https://github.com/Shahin992">
+<link rel="me" href="https://www.linkedin.com/in/shahin983">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..500&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.setAttribute("data-theme",t)}catch(e){}})();</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/viz.js" defer></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://shahinkhan.online/#website",
+   "url": "https://shahinkhan.online/",
+   "name": "Shahin Alam — Software Engineer",
+   "description": "Portfolio of Shahin Alam, a software engineer in Dhaka, Bangladesh.",
+   "inLanguage": "en",
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "publisher": {
+    "@id": "https://shahinkhan.online/#person"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://shahinkhan.online/#person",
+   "name": "Shahin Alam",
+   "alternateName": "Shahin Khan",
+   "jobTitle": "Software Engineer",
+   "url": "https://shahinkhan.online/",
+   "image": "https://shahinkhan.online/assets/img/shahin-alam.jpg",
+   "sameAs": [
+    "https://github.com/Shahin992",
+    "https://www.linkedin.com/in/shahin983"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://shahinkhan.online/projects/coldmailer#webpage",
+   "url": "https://shahinkhan.online/projects/coldmailer",
+   "name": "ColdMailer — Self-Hosted Cold Email Platform Case Study",
+   "description": "How Shahin Alam built ColdMailer, a self-hosted cold-email platform on Next.js 16 and PostgreSQL with human-paced sending, warm-up and reply tracking.",
+   "isPartOf": {
+    "@id": "https://shahinkhan.online/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://shahinkhan.online/assets/img/og-image.png"
+   },
+   "datePublished": "2026-11-22",
+   "dateModified": "2026-11-22",
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "breadcrumb": {
+    "@id": "https://shahinkhan.online/projects/coldmailer#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://shahinkhan.online/projects/coldmailer#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://shahinkhan.online/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Projects",
+     "item": "https://shahinkhan.online/projects"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "ColdMailer",
+     "item": "https://shahinkhan.online/projects/coldmailer"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://shahinkhan.online/projects/coldmailer#faq",
+   "isPartOf": {
+    "@id": "https://shahinkhan.online/projects/coldmailer#webpage"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is ColdMailer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ColdMailer is a self-hosted cold-email platform built by Shahin Alam as a personal project. It sends campaigns from the user's own mailboxes (Gmail, Hostinger or any SMTP server) at a human pace, warms up new mailboxes, detects replies and bounces over IMAP within seconds, and tracks opens, clicks and unsubscribes. It is one Next.js 16 app with a PostgreSQL database, deployed with Docker Compose."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is ColdMailer built with?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Next.js 16 (App Router), React 19 and TypeScript; PostgreSQL 17 with Drizzle ORM; nodemailer for SMTP, imapflow for IMAP and mailparser for incoming mail; Tailwind CSS; web-push for notifications; Docker Compose with Caddy for automatic HTTPS."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does ColdMailer keep sending human-paced?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Each mailbox gets a next send time based on its sending window divided by its daily limit, with random jitter and a minimum gap between emails. Limits are counted over a rolling 24 hours across campaigns, warm-up and tests, the same way email providers count them, and whatever doesn't fit today carries over to tomorrow."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see ColdMailer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ColdMailer runs privately, so there's no public demo. I'm happy to walk you through it. Get in touch."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://shahinkhan.online/projects/coldmailer#app",
+   "name": "ColdMailer",
+   "description": "ColdMailer is a self-hosted cold-email platform built by Shahin Alam as a personal project. It sends campaigns from the user's own mailboxes (Gmail, Hostinger or any SMTP server) at a human pace, warms up new mailboxes, detects replies and bounces over IMAP within seconds, and tracks opens, clicks and unsubscribes. It is one Next.js 16 app with a PostgreSQL database, deployed with Docker Compose.",
+   "applicationCategory": "BusinessApplication",
+   "applicationSubCategory": "Email outreach platform",
+   "operatingSystem": "Web browser (self-hosted with Docker)",
+   "featureList": [
+    "Multi-mailbox campaigns: Paste, upload a CSV of up to 200k rows (parsed in a background worker) or import a Google Sheet, with merge fields and fallbacks.",
+    "Human-paced sending: Send window ÷ daily limit, ±15% jitter, a 2-minute minimum gap and rolling 24-hour limits per mailbox.",
+    "Sticky senders & threads: A recipient always hears from the same mailbox, and follow-ups reply in the same thread.",
+    "Reply & bounce detection: IMAP IDLE picks up replies in about 3 seconds; bounces are classified and auto-replies flagged, without marking mail as read.",
+    "Two email styles: \"Personal\" plain text with no tracking, or \"Newsletter\" HTML with one-click unsubscribe and optional open and click tracking.",
+    "Tracking without noise: HMAC-signed tokens, with scanners, Apple Mail Privacy Protection and too-fast clicks filtered out.",
+    "Unsubscribe & suppression: One-click unsubscribe, \"stop\" and \"remove me\" replies detected, and hard bounces suppressed automatically.",
+    "Workspaces & super admin: Open sign-up with approval, every table scoped to its owner, and accounts that can be disabled or deleted.",
+    "PWA, push & API: An installable app with push alerts on every reply, plus a JWT-secured REST API for campaigns, replies and senders."
+   ],
+   "author": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "creator": {
+    "@id": "https://shahinkhan.online/#person"
+   },
+   "subjectOf": {
+    "@id": "https://shahinkhan.online/projects/coldmailer#webpage"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/" aria-label="Shahin Alam, home">Shahin Alam<span>.</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Primary"><ul><li><a href="/about"><span class="n">01</span>About</a></li><li><a href="/projects" aria-current="page"><span class="n">02</span>Projects</a></li><li><a href="/experience"><span class="n">03</span>Experience</a></li><li><a href="/skills"><span class="n">04</span>Skills</a></li><li><a href="/contact"><span class="n">05</span>Contact</a></li></ul></nav>
+    <div class="header-actions">
+      <span class="clock" title="Local time in Dhaka">DHAKA <span data-clock>GMT+6</span></span>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle color theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button class="icon-btn nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <canvas class="hero-3d" data-shape="knot25" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/projects">Projects</a></li><li><span aria-current="page">ColdMailer</span></li></ol></nav>
+    <h1><span class="w"><span style="--wi:0">ColdMailer:</span></span> <span class="w"><span style="--wi:1">cold</span></span> <span class="w"><span style="--wi:2">outreach</span></span> <span class="w"><span style="--wi:3">at</span></span> <span class="w"><span style="--wi:4">a</span></span> <em><span class="w"><span style="--wi:5">human</span></span> <span class="w"><span style="--wi:6">pace</span></span></em></h1>
+    <p class="lead" data-rise style="--d:0.12s">A self-hosted platform that sends campaigns from your own mailboxes, spaces every email like a person would, warms up new mailboxes and catches replies within seconds. A personal project I designed, built and deployed end to end.</p>
+    
+  </div>
+</section>
+<section class="section tight" aria-label="Project facts">
+  <div class="wrap">
+    <dl class="facts" data-reveal>
+      <div><dt>Type</dt><dd>Self-hosted SaaS · multi-tenant</dd></div>
+      <div><dt>Role</dt><dd>Personal project · full-stack</dd></div>
+      <div><dt>Status</dt><dd>In production since Oct 2026</dd></div>
+      <div><dt>App</dt><dd>Next.js 16 · React 19 · TypeScript</dd></div>
+      <div><dt>Data</dt><dd>PostgreSQL 17 · Drizzle ORM · 14 tables</dd></div>
+      <div><dt>Mail</dt><dd>nodemailer · imapflow · mailparser</dd></div>
+      <div><dt>Infrastructure</dt><dd>Docker Compose · Caddy · cron runner</dd></div>
+      <div><dt>Security</dt><dd>JWT · scrypt · AES-256-GCM · HMAC</dd></div>
+      <div><dt>Extras</dt><dd>PWA · Web Push · REST API</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-label="Architecture">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(01)</span><h2>How it's <em>built</em></h2><span></span><p class="sec-lede">One Next.js app does everything: UI, REST API, background jobs and IMAP watchers, with a single PostgreSQL database. A tiny cron runner drives sending and inbox checks, and there's no Redis.</p></header>
+    <div class="arch" data-reveal style="--d:0.1s"><svg class="arch-d animated" viewBox="0 0 960 370" role="img" aria-labelledby="cmd-t"><title id="cmd-t">ColdMailer architecture: one Next.js 16 app (UI, REST API, background jobs and IMAP IDLE watchers) with a PostgreSQL database and a small cron runner, deployed with Docker Compose behind Caddy. It sends through the user's own mailboxes over SMTP, reads replies over IMAP, and records opens, clicks and unsubscribes.</title><g class="arch-group"><rect x="200" y="20" width="560" height="330" rx="10"/><text x="216" y="44">Docker Compose · one small VM · Caddy HTTPS</text></g><path id="cmdb" class="arch-edge" d="M176,132 H224"/><circle class="packet" r="4"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#cmdb"/></animateMotion></circle><path id="cmds" class="arch-edge" d="M474,94 H796"/><circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#cmds"/></animateMotion></circle><path id="cmdi" class="arch-edge rev" d="M796,140 H474"/><circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#cmdi"/></animateMotion></circle><path id="cmdd" class="arch-edge" d="M871,170 V226"/><circle class="packet" r="4"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#cmdd"/></animateMotion></circle><path id="cmdt" class="arch-edge rev" d="M796,280 C760,230 600,190 474,190"/><circle class="packet" r="4"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cmdt"/></animateMotion></circle><path id="cmdc" class="arch-edge" d="M349,256 V214"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#cmdc"/></animateMotion></circle><path id="cmdp" class="arch-edge" d="M474,204 H497 V292 H520"/><circle class="packet" r="4"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#cmdp"/></animateMotion></circle><text class="arch-label" x="635" y="84" text-anchor="middle">SMTP · human-paced</text><text class="arch-label" x="635" y="160" text-anchor="middle">IMAP IDLE · replies &amp; bounces</text><text class="arch-label" x="640" y="244" text-anchor="middle">Tracking · unsubscribe</text><g class="arch-node "><rect x="16" y="84" width="160" height="96" rx="6"/><text class="t" x="32" y="112">Browser · PWA</text><text class="s" x="32" y="134">Dashboard</text><text class="s" x="32" y="153">Reply push alerts</text></g><g class="arch-node "><rect x="224" y="64" width="250" height="150" rx="6"/><text class="t" x="240" y="92">Next.js 16 app</text><text class="s" x="240" y="114">UI · REST API · actions</text><text class="s" x="240" y="133">proxy.ts JWT auth</text><text class="s" x="240" y="152">IMAP IDLE watchers</text><text class="s" x="240" y="171">Tracking &amp; unsubscribe</text></g><g class="arch-node "><rect x="224" y="256" width="250" height="72" rx="6"/><text class="t" x="240" y="284">Cron runner</text><text class="s" x="240" y="306">send: 1 min · inbox: 5 min</text></g><g class="arch-node "><rect x="520" y="256" width="220" height="72" rx="6"/><text class="t" x="536" y="284">PostgreSQL 17</text><text class="s" x="536" y="306">Drizzle · job lock row</text></g><g class="arch-node svc"><rect x="796" y="60" width="150" height="110" rx="6"/><text class="t" x="812" y="88">Mailboxes</text><text class="s" x="812" y="110">SMTP send</text><text class="s" x="812" y="129">IMAP read</text><text class="s" x="812" y="148">Any provider</text></g><g class="arch-node svc"><rect x="796" y="226" width="150" height="86" rx="6"/><text class="t" x="812" y="254">Recipients</text><text class="s" x="812" y="276">Opens · clicks</text><text class="s" x="812" y="295">Unsubscribes</text></g></svg><svg class="arch-m animated" viewBox="0 0 360 712" role="img" aria-labelledby="cmm-t"><title id="cmm-t">ColdMailer architecture: one Next.js 16 app (UI, REST API, background jobs and IMAP IDLE watchers) with a PostgreSQL database and a small cron runner, deployed with Docker Compose behind Caddy. It sends through the user's own mailboxes over SMTP, reads replies over IMAP, and records opens, clicks and unsubscribes.</title><g class="arch-group"><rect x="10" y="96" width="340" height="300" rx="10"/><text x="26" y="120">Docker Compose · Caddy</text></g><path id="cmmb" class="arch-edge" d="M180,72 V136"/><circle class="packet" r="4"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#cmmb"/></animateMotion></circle><path id="cmmc" class="arch-edge" d="M105,300 V256"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#cmmc"/></animateMotion></circle><path id="cmmp" class="arch-edge" d="M255,256 V300"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#cmmp"/></animateMotion></circle><path id="cmms" class="arch-edge" d="M320,196 H338 V556 H320"/><circle class="packet" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cmms"/></animateMotion></circle><path id="cmmi" class="arch-edge rev" d="M40,556 H22 V196 H40"/><circle class="packet" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cmmi"/></animateMotion></circle><path id="cmmd" class="arch-edge" d="M180,592 V630"/><circle class="packet" r="4"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#cmmd"/></animateMotion></circle><g class="arch-node "><rect x="100" y="8" width="160" height="64" rx="6"/><text class="t" x="116" y="36">Browser · PWA</text></g><g class="arch-node "><rect x="40" y="136" width="280" height="120" rx="6"/><text class="t" x="56" y="164">Next.js 16 app</text><text class="s" x="56" y="186">UI · REST API · actions</text><text class="s" x="56" y="205">IMAP IDLE watchers</text><text class="s" x="56" y="224">Tracking &amp; unsubscribe</text></g><g class="arch-node "><rect x="40" y="300" width="130" height="64" rx="6"/><text class="t" x="56" y="328">Cron</text><text class="s" x="56" y="350">1 min · 5 min</text></g><g class="arch-node "><rect x="190" y="300" width="130" height="64" rx="6"/><text class="t" x="206" y="328">PostgreSQL</text><text class="s" x="206" y="350">Drizzle ORM</text></g><g class="arch-node svc"><rect x="40" y="520" width="280" height="72" rx="6"/><text class="t" x="56" y="548">Mailboxes</text><text class="s" x="56" y="570">SMTP send · IMAP read</text></g><g class="arch-node svc"><rect x="40" y="630" width="280" height="72" rx="6"/><text class="t" x="56" y="658">Recipients</text><text class="s" x="56" y="680">Opens · clicks · unsubscribes</text></g></svg></div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="By the numbers">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(02)</span><h2>By the <em>numbers</em></h2><span></span></header>
+    <div class="metrics">
+      <article class="metric" data-reveal>
+        <p class="metric-value"><span data-count="200">200</span><small>k</small></p>
+        <h3>Recipients per campaign</h3>
+        <div class="mini-bars" role="img" aria-label="CSV import time: 100k rows in about 30 seconds, 200k rows in about 50 seconds">
+          <div class="mb"><span>100k</span><i style="--w:60%"></i><b>30 s</b></div>
+          <div class="mb after"><span>200k</span><i style="--w:100%"></i><b>50 s</b></div>
+        </div>
+        <p class="metric-note">Measured CSV import time, parsed in a background worker and uploaded in parts.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.08s">
+        <p class="metric-value">~<span data-count="3">3</span><small>s</small></p>
+        <h3>To pick up a reply</h3>
+        <div class="mini-bars" role="img" aria-label="Reply detection: IMAP IDLE about 3 seconds, fallback check every 5 minutes">
+          <div class="mb after"><span>IDLE</span><i style="--w:2%"></i><b>3 s</b></div>
+          <div class="mb"><span>Check</span><i style="--w:100%"></i><b>5 min</b></div>
+        </div>
+        <p class="metric-note">IMAP IDLE per mailbox, with a 5-minute check kept as the safety net.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.16s">
+        <p class="metric-value"><span data-count="54">54</span></p>
+        <h3>End-to-end warm-up checks</h3>
+        <svg class="ring" viewBox="0 0 92 92" role="img" aria-label="54 of 54 checks passing"><circle class="track" cx="46" cy="46" r="38"/><circle class="val" cx="46" cy="46" r="38" style="--off:0"/><text x="46" y="51" text-anchor="middle">54/54</text></svg>
+        <p class="metric-note">All passing, three runs in a row, against a local mail test kit.</p>
+      </article>
+      <article class="metric" data-reveal style="--d:0.24s">
+        <p class="metric-value">~<span data-count="200">200</span><small>MB</small></p>
+        <h3>RAM for the whole stack</h3>
+        <p class="metric-note">App, cron, database and HTTPS proxy together on one small VM.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Warm-up engine">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(03)</span><h2>The warm-up <em>engine</em></h2><span></span></header>
+    <div class="split">
+      <div class="prose" data-reveal>
+        <p>New mailboxes have no sending history, so providers treat them with suspicion. ColdMailer builds that history: a pool of the user's own mailboxes email each other, starting at <strong>2 emails on day 1</strong> and adding 2 a day up to <strong>30 a day</strong>.</p>
+        <p>About <strong>35%</strong> of warm-up emails get a natural reply 15 minutes to 3 hours later, in the same thread. Anything that lands in spam is moved back to the inbox, and placement becomes an inbox score.</p>
+        <p>The messages come from about 20 workplace scenarios with varied wording, so almost every body is unique. Warm-up mail never touches campaign stats or the do-not-send list, but it does share each mailbox's daily limit.</p>
+      </div>
+      <div class="ramp-card" data-reveal style="--d:0.1s">
+    <div class="ramp" role="img" aria-label="Warm-up ramp per mailbox: 2 emails on day 1, 2 more each day, reaching the 30 per day cap on day 15">
+      <div class="ramp-y" aria-hidden="true"><span>30</span><span>20</span><span>10</span><span>0</span></div>
+      <div class="ramp-bars"><span class="" style="--h:6.7%;--i:1" title="Day 1: 2 emails"></span><span class="" style="--h:13.3%;--i:2" title="Day 2: 4 emails"></span><span class="" style="--h:20.0%;--i:3" title="Day 3: 6 emails"></span><span class="" style="--h:26.7%;--i:4" title="Day 4: 8 emails"></span><span class="" style="--h:33.3%;--i:5" title="Day 5: 10 emails"></span><span class="" style="--h:40.0%;--i:6" title="Day 6: 12 emails"></span><span class="" style="--h:46.7%;--i:7" title="Day 7: 14 emails"></span><span class="" style="--h:53.3%;--i:8" title="Day 8: 16 emails"></span><span class="" style="--h:60.0%;--i:9" title="Day 9: 18 emails"></span><span class="" style="--h:66.7%;--i:10" title="Day 10: 20 emails"></span><span class="" style="--h:73.3%;--i:11" title="Day 11: 22 emails"></span><span class="" style="--h:80.0%;--i:12" title="Day 12: 24 emails"></span><span class="" style="--h:86.7%;--i:13" title="Day 13: 26 emails"></span><span class="" style="--h:93.3%;--i:14" title="Day 14: 28 emails"></span><span class="cap" style="--h:100.0%;--i:15" title="Day 15: 30 emails"></span><div class="ramp-cap" aria-hidden="true"><em>cap · 30 / day</em></div></div>
+    </div>
+    <div class="ramp-x" aria-hidden="true"><span>Day 1</span><span>Day 5</span><span>Day 10</span><span>Day 15</span></div>
+    <p class="chart-legend"><span><i></i>Warm-up emails per mailbox per day</span><span><i class="a"></i>Cap reached (editable)</span></p>
+  </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="Features">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(04)</span><h2>What it <em>does</em></h2><span></span></header>
+    <ol class="numbered three" data-reveal><li><h3>Multi-mailbox campaigns</h3><p>Paste, upload a CSV of up to 200k rows (parsed in a background worker) or import a Google Sheet, with merge fields and fallbacks.</p></li><li><h3>Human-paced sending</h3><p>Send window ÷ daily limit, ±15% jitter, a 2-minute minimum gap and rolling 24-hour limits per mailbox.</p></li><li><h3>Sticky senders &amp; threads</h3><p>A recipient always hears from the same mailbox, and follow-ups reply in the same thread.</p></li><li><h3>Reply &amp; bounce detection</h3><p>IMAP IDLE picks up replies in about 3 seconds; bounces are classified and auto-replies flagged, without marking mail as read.</p></li><li><h3>Two email styles</h3><p>"Personal" plain text with no tracking, or "Newsletter" HTML with one-click unsubscribe and optional open and click tracking.</p></li><li><h3>Tracking without noise</h3><p>HMAC-signed tokens, with scanners, Apple Mail Privacy Protection and too-fast clicks filtered out.</p></li><li><h3>Unsubscribe &amp; suppression</h3><p>One-click unsubscribe, "stop" and "remove me" replies detected, and hard bounces suppressed automatically.</p></li><li><h3>Workspaces &amp; super admin</h3><p>Open sign-up with approval, every table scoped to its owner, and accounts that can be disabled or deleted.</p></li><li><h3>PWA, push &amp; API</h3><p>An installable app with push alerts on every reply, plus a JWT-secured REST API for campaigns, replies and senders.</p></li></ol>
+  </div>
+</section>
+
+<section class="section" aria-label="Engineering highlights">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(05)</span><h2>Engineering <em>highlights</em></h2><span></span></header>
+    <div class="prose" data-reveal style="max-width:78ch">
+      <ul>
+        <li><strong>No queue infrastructure.</strong> Jobs are secret-protected HTTP routes driven by a tiny cron runner. A self-expiring PostgreSQL lock row prevents overlap, and the send job works inside a 45-second budget each minute, warm-up first.</li>
+        <li><strong>Retries that never double-send.</strong> Up to 3 attempts, after 5, 15 and 45 minutes. Emails stuck in "sending" after a crash are flagged for review rather than sent again blindly.</li>
+        <li><strong>Near-instant replies.</strong> An IMAP IDLE connection per active mailbox starts at server boot, with a reconcile loop, exponential backoff and a short debounce. The 5-minute check stays as the safety net and also covers spam folders.</li>
+        <li><strong>Secure by default.</strong> An allowlist of public routes, separate JWT audiences for the web app and the API, AES-256-GCM-encrypted mailbox credentials, scrypt passwords and HMAC-signed tracking links. A 69-request cross-account sweep found no data leaks between workspaces.</li>
+        <li><strong>Zero-touch deploys.</strong> One <code>docker compose up</code> backs up the database, generates and applies migrations, then starts the app behind Caddy with automatic HTTPS.</li>
+        <li><strong>Testable without real inboxes.</strong> A local kit with embedded PostgreSQL, an SMTP sink and IMAP mocks, including a Gmail-like partner mailbox for warm-up tests.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Frequently asked questions">
+  <div class="wrap">
+    <header class="sec-head" data-reveal><span class="sec-num">(06)</span><h2>ColdMailer <em>FAQ</em></h2><span></span></header>
+    <div class="faq" data-reveal><details open><summary><h3>What is ColdMailer?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>ColdMailer is a self-hosted cold-email platform built by Shahin Alam as a personal project. It sends campaigns from the user's own mailboxes (Gmail, Hostinger or any SMTP server) at a human pace, warms up new mailboxes, detects replies and bounces over IMAP within seconds, and tracks opens, clicks and unsubscribes. It is one Next.js 16 app with a PostgreSQL database, deployed with Docker Compose.</p></div></details><details><summary><h3>What is ColdMailer built with?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Next.js 16 (App Router), React 19 and TypeScript; PostgreSQL 17 with Drizzle ORM; nodemailer for SMTP, imapflow for IMAP and mailparser for incoming mail; Tailwind CSS; web-push for notifications; Docker Compose with Caddy for automatic HTTPS.</p></div></details><details><summary><h3>How does ColdMailer keep sending human-paced?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Each mailbox gets a next send time based on its sending window divided by its daily limit, with random jitter and a minimum gap between emails. Limits are counted over a rolling 24 hours across campaigns, warm-up and tests, the same way email providers count them, and whatever doesn't fit today carries over to tomorrow.</p></div></details><details><summary><h3>Can I see ColdMailer?</h3><span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>ColdMailer runs privately, so there's no public demo. I'm happy to walk you through it. <a href="/contact">Get in touch</a>.</p></div></details></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cta" data-reveal>
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Have a project or role in mind?</p>
+      <a class="big-mail" href="mailto:shahin.khan.dev@gmail.com">shahin.khan.dev@gmail.com</a>
+      <p class="alt">Or reach out on <a href="https://www.linkedin.com/in/shahin983" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </div>
+    <div class="footer-grid">
+      <div><h2>Shahin Alam</h2><p>Full-stack software engineer in Dhaka, Bangladesh, building fast, scalable web applications with React, Next.js, Node.js and TypeScript.</p></div>
+      <nav aria-label="Footer"><h2>Pages</h2><ul><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/experience">Experience</a></li><li><a href="/skills">Skills</a></li><li><a href="/contact">Contact</a></li></ul></nav>
+      <div><h2>Elsewhere</h2><ul>
+        <li><a href="https://github.com/Shahin992" rel="me noopener" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/shahin983" rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:shahin.khan.dev@gmail.com">Email</a></li>
+        <li><a href="/assets/Shahin-Alam-Resume.pdf" download>Résumé (PDF)</a></li>
+      </ul></div>
+      <div><h2>Local time · Dhaka</h2><p class="footer-time" data-clock>GMT+6</p><p class="muted" style="margin-top:8px">Bangladesh Standard Time</p></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shahin Alam · Hand-built with HTML &amp; CSS</span>
+      <span>Last updated <time datetime="2026-11-22">November 22, 2026</time></span>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </div>
+  <p class="footer-giant" aria-hidden="true" data-reveal><span class="l" style="--li:0">S</span><span class="l" style="--li:1">h</span><span class="l" style="--li:2">a</span><span class="l" style="--li:3">h</span><span class="l" style="--li:4">i</span><span class="l" style="--li:5">n</span> <em><span class="l" style="--li:6">A</span><span class="l" style="--li:7">l</span><span class="l" style="--li:8">a</span><span class="l" style="--li:9">m</span></em></p>
+</footer>
+</body>
+</html>

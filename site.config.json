@@ -1,0 +1,10 @@
+{
+  "siteUrl": "https://shahinkhan.online",
+  "zone": "shahinkhan.online",
+  "worker": "shahin-portfolio",
+  "bucket": "shahin-portfolio",
+  "exclude": [
+    "assets/img/office-working.jpg",
+    "assets/img/Shahin-PP-2025.png"
+  ]
+}

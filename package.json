@@ -1,0 +1,21 @@
+{
+  "name": "shahin-alam-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio website of Shahin Alam, Software Engineer (React, Next.js, TypeScript, Node.js) in Dhaka, Bangladesh.",
+  "scripts": {
+    "start": "node server.js",
+    "start:wifi": "HOST=0.0.0.0 PORT=${PORT:-2027} node server.js",
+    "build": "node build.mjs",
+    "preview": "node build.mjs && node server.js --dist",
+    "test:worker": "node build.mjs && node tools/test-worker.mjs",
+    "deploy:check": "node tools/check-cloudflare.mjs",
+    "deploy:dry": "node build.mjs && node tools/deploy.mjs --dry-run",
+    "deploy": "node build.mjs && node tools/deploy.mjs && npx --yes wrangler@4 deploy && node tools/indexnow.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Shahin Alam"
+}
